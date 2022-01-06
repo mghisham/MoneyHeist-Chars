@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Money Heist Chars</string>
+    <string name="app_icon_name">Money Heist\nChars</string>
+    <string name="title_home">Home</string>
+    <string name="go_back">Go back</string>
+    <string name="empty_text" />
+    <string name="label_p_language_stars">Money Heist Stars</string>
+    <string name="real_name">Real Name</string>
+    <string name="title">Title</string>
+    <string name="other_names">Alias</string>
+    <string name="favourite">favourite</string>
+</resources>

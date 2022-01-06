@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="apps.hm.mhchars.domain.model.CharacterEntity" />
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/buiStyleCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_4dp"
+        app:cardBackgroundColor="@color/myBackground">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/view_star"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profPic"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_200dp"
+                android:layout_margin="@dimen/dimen_4dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:transitionName="@{item.image}"
+                app:imageUrl="@{item.image}"
+                app:layout_constraintBottom_toTopOf="@id/tv_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:isSmallerImage="@{true}"
+                tools:src="@drawable/ic_man" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_marginEnd="@dimen/dimen_8dp"
+                android:maxLines="1"
+                android:text="@{item.alias}"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="@color/planePrimaryTextColor"
+                app:layout_constraintBottom_toTopOf="@id/tv_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profPic"
+                tools:text="Father of Android" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_marginEnd="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:maxLines="1"
+                android:text="@{item.occupation}"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/planeSecondaryTextColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                tools:text="Andy" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

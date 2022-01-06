@@ -1,0 +1,92 @@
+ext {
+    def gradleVersion = "7.0.4"
+    def kotlinGradleVersion = "1.6.10"
+    def hiltGradleVersion = "2.40.5"
+    def appCompatVersion = "1.4.0"
+    def materialVersion = "1.4.0"
+    def constraintLayoutVersion = "2.1.2"
+    def coreKtxVersion = "1.7.0"
+    def activityKtx = "1.4.0"
+    def lifecycleLivedataKtx = "2.4.0"
+    def lifecycleViewModelKtx = "2.4.0"
+    def navigationFragmentKtx = "2.3.5"
+    def navigationUiKtx = "2.3.5"
+    def lifecycleExtensions = "2.2.0"
+    def swipeRefreshLayoutVersion = "1.1.0"
+    def retrofitVersion = "2.9.0"
+    def retrofitConverterGsonVersion = "2.9.0"
+    def okhttpVersion = "4.9.0"
+    def okhttpLoggingInterceptorVersion = "4.8.0"
+    def hiltAndroidVersion = "2.40.5"
+    def kaptHiltAndroidCompilerVersion = "2.40.5"
+    def hiltLifecycleViewModelVersion = "1.0.0-alpha03"
+    def kaptHiltCompilerVersion = "1.0.0"
+    def kotlinxCoroutinesVersion = "1.5.2"
+    def roomVersion = "2.4.0"
+    def kaptRoomCompilerVersion = "2.4.0"
+    def roomKtxVersion = "2.4.0"
+    def testCore = "2.1.0"
+    def testKotlinxCoroutines = "1.5.2"
+    def testMockitoCore = "3.11.0"
+    def testJunit = "4.13.2"
+    def androidTestJunit = "1.1.3"
+    def androidTestEspressoCore = "3.4.0"
+    def glideVersion = "4.11.0"
+    def picassoVersion = "2.5.2"
+
+    classPaths = [
+            gradlePath      : "com.android.tools.build:gradle:$gradleVersion",
+            kotlinGradlePath: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradleVersion",
+            hiltPath        : "com.google.dagger:hilt-android-gradle-plugin:$hiltGradleVersion"
+    ]
+
+    androidx = [
+            coreKtx           : "androidx.core:core-ktx:$coreKtxVersion",
+            appCompat         : "androidx.appcompat:appcompat:$appCompatVersion",
+            constraintlayout  : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            lifecycleExt      : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensions",
+            swiperefreshlayout: "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayoutVersion",
+            lifecycleLiveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleLivedataKtx",
+            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleViewModelKtx",
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:$navigationFragmentKtx",
+            navigationUi      : "androidx.navigation:navigation-ui-ktx:$navigationUiKtx",
+            activityKtx       : "androidx.activity:activity-ktx:$activityKtx",
+            roomDb            : "androidx.room:room-runtime:$roomVersion",
+            kaptRoomDb        : "androidx.room:room-compiler:$kaptRoomCompilerVersion",
+            roomKtx           : "androidx.room:room-ktx:$roomKtxVersion"
+    ]
+
+    google = [
+            material: "com.google.android.material:material:$materialVersion"
+    ]
+
+    kotlin = [
+            kotlinxCoroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesVersion"
+    ]
+
+    hilt = [
+            hiltAndroid            : "com.google.dagger:hilt-android:$hiltAndroidVersion",
+            kaptHiltAndroidCompiler: "com.google.dagger:hilt-android-compiler:$kaptHiltAndroidCompilerVersion",
+            kaptHiltCompiler       : "androidx.hilt:hilt-compiler:$kaptHiltCompilerVersion",
+            hiltViewModel          : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifecycleViewModelVersion"
+    ]
+
+    network = [
+            retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGsonConverter   : "com.squareup.retrofit2:converter-gson:$retrofitConverterGsonVersion",
+            okhttp                  : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
+    ]
+
+    testing = [
+            unitTestingCore       : "androidx.arch.core:core-testing:$testCore",
+            unitTestingCoroutines : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testKotlinxCoroutines",
+            unitTestingMockitoCore: "org.mockito:mockito-core:$testMockitoCore",
+            unitTestingJunit      : "junit:junit:$testJunit",
+            uiTestingJunit        : "androidx.test.ext:junit:$androidTestJunit",
+            uiTestingEspresso     : "androidx.test.espresso:espresso-core:$androidTestEspressoCore"
+    ]
+    others = [
+            picasso: "com.squareup.picasso:picasso:$picassoVersion"
+    ]
+}

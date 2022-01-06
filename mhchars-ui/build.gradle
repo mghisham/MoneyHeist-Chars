@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "apps.hm.mhchars"
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+
+kapt {
+    correctErrorTypes true
+}
+
+dependencies {
+
+    implementation project(path: ':mhchars-domain')
+    implementation project(path: ':mhchars-data')
+
+    implementation androidx.coreKtx
+    implementation androidx.appCompat
+    implementation androidx.constraintlayout
+    implementation androidx.lifecycleExt
+    implementation google.material
+
+    //Activity extension, referring with  "by viewModels"
+    implementation androidx.activityKtx
+
+    //Adding Swipe Refresh Layout Dependency
+    implementation androidx.swiperefreshlayout
+
+    // LiveData
+    implementation androidx.lifecycleLiveData
+
+    // ViewModel
+    implementation androidx.lifecycleViewModel
+
+    // Navigation
+    implementation androidx.navigationFragment
+    implementation androidx.navigationUi
+
+    //DI Hilt
+    implementation hilt.hiltAndroid
+    kapt hilt.kaptHiltAndroidCompiler
+
+    //For Hilt support for ViewModel
+    implementation hilt.hiltViewModel
+    kapt hilt.kaptHiltCompiler
+
+    //Coroutines
+    implementation kotlin.kotlinxCoroutines
+
+    //Glide
+    implementation others.picasso
+
+    // optional - Test helpers for LiveData
+    testImplementation testing.unitTestingCore
+
+    // Coroutine Testing
+    testImplementation testing.unitTestingCoroutines
+    testImplementation testing.unitTestingMockitoCore
+
+    testImplementation testing.unitTestingJunit
+    androidTestImplementation  testing.uiTestingJunit
+    androidTestImplementation  testing.uiTestingEspresso
+}

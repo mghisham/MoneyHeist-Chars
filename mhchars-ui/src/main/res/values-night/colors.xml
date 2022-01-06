@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="myBackground">#2b2b38</color>
+    <color name="planePrimaryTextColor">#FFFFFF</color>
+    <color name="planeSecondaryTextColor">#919191</color>
+    <color name="cardSecondaryTextColor">#696969</color>
+</resources>
