@@ -16,48 +16,20 @@
         android:layout_height="match_parent"
         android:padding="@dimen/dimen_8dp">
 
-        <ImageView
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/go_back"
-            android:focusable="true"
-            android:padding="@dimen/dimen_8dp"
-            android:src="@drawable/ic_arrow_left"
-            app:layout_constraintBottom_toTopOf="@id/swipeRefresh"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/btn_fav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/favourite"
-            android:focusable="true"
-            android:padding="@dimen/dimen_8dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@id/swipeRefresh"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_header_title"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/tv_header_title"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:layout_marginStart="@dimen/dimen_16dp"
             android:layout_marginEnd="@dimen/dimen_16dp"
             android:text="@{headerTitle}"
+            android:gravity="center"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textColor="@color/planePrimaryTextColor"
-            app:layout_constraintBottom_toBottomOf="@id/btn_back"
-            app:layout_constraintEnd_toStartOf="@id/btn_fav"
-            app:layout_constraintStart_toEndOf="@id/btn_back"
-            app:layout_constraintTop_toTopOf="@id/btn_back"
+            app:layout_constraintBottom_toTopOf="@id/swipeRefresh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/app_name" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -67,7 +39,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_back"
+            app:layout_constraintTop_toBottomOf="@id/tv_header_title"
             tools:context=".ui.dashboard.DashboardFragment">
 
             <androidx.recyclerview.widget.RecyclerView

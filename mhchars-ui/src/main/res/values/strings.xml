@@ -5,8 +5,16 @@
     <string name="go_back">Go back</string>
     <string name="empty_text" />
     <string name="label_p_language_stars">Money Heist Stars</string>
-    <string name="real_name">Real Name</string>
-    <string name="title">Title</string>
+    <string name="label_name">Name</string>
+    <string name="label_title">Title</string>
     <string name="other_names">Alias</string>
     <string name="favourite">favourite</string>
+    <string name="label_occupation">Occupation</string>
+    <string name="label_gender">Gender</string>
+    <string name="label_status">Status</string>
+    <string name="label_romance">Romance</string>
+    <string name="label_family">Family</string>
+    <string name="label_first_appearance">First Appearance</string>
+    <string name="label_last_appearance">Last Appearance</string>
+    <string name="label_played_by">Played by</string>
 </resources>

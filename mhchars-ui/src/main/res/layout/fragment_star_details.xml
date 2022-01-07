@@ -27,6 +27,7 @@
             android:padding="@dimen/dimen_8dp"
             android:src="@drawable/ic_arrow_left"
             app:layout_constraintBottom_toTopOf="@id/view_contents"
+            app:layout_constraintEnd_toStartOf="@id/tv_header_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,16 +62,7 @@
             app:layout_constraintTop_toTopOf="@id/btn_back"
             tools:text="@string/app_name" />
 
-        <!--<androidx.core.widget.NestedScrollView
-            android:id="@+id/view_contents"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_back">-->
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/view_contents"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -79,99 +71,294 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_back">
 
-            <ImageView
-                android:id="@+id/profPic"
-                android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:contentDescription="@string/app_name"
-                android:foregroundGravity="center_horizontal"
-                android:transitionName="@{item.image}"
-                app:imageUrl="@{item.image}"
-                app:layout_collapseMode="parallax"
-                app:layout_constraintBottom_toTopOf="@id/tv_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:isSmallerImage="@{false}"
-                tools:src="@drawable/ic_man" />
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16dp"
-                android:text="@{item.name}"
-                android:textAlignment="center"
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:textColor="@color/planePrimaryTextColor"
-                app:layout_constraintBottom_toTopOf="@id/tv_title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profPic"
-                tools:text="Andy" />
-
-            <TextView
-                android:id="@+id/tv_title_label"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/dimen_16dp"
-                android:text="@string/title"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="@color/planeSecondaryTextColor"
-                app:layout_constraintBottom_toTopOf="@id/tv_other_name"
-                app:layout_constraintEnd_toStartOf="@id/tv_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_name"
-                app:layout_constraintWidth_percent="0.3"
-                tools:text="Title" />
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16dp"
-                android:text="@{item.occupation}"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="@color/planePrimaryTextColor"
-                app:layout_constraintBottom_toTopOf="@id/tv_other_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_title_label"
-                app:layout_constraintTop_toBottomOf="@id/tv_name"
-                app:layout_constraintWidth_percent="0.7"
-                tools:text="Father of Android" />
-
-            <TextView
-                android:id="@+id/tv_other_name_label"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/dimen_8dp"
-                android:text="@string/other_names"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="@color/planeSecondaryTextColor"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tv_other_name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title"
-                app:layout_constraintWidth_percent="0.3"
-                tools:text="Other names" />
-
-            <TextView
-                android:id="@+id/tv_other_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_8dp"
-                android:layout_marginBottom="@dimen/dimen_16dp"
-                android:text="@{item.alias}"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="@color/planePrimaryTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_other_name_label"
-                app:layout_constraintTop_toBottomOf="@id/tv_title"
-                app:layout_constraintWidth_percent="0.7"
-                tools:text="Father of Java,\nMost notable for the creation and development of the C++ programming language" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <!--</androidx.core.widget.NestedScrollView>-->
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_back">
+
+                <ImageView
+                    android:id="@+id/profPic"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_400dp"
+                    android:contentDescription="@string/app_name"
+                    android:transitionName="@{item.image}"
+                    app:imageUrl="@{item.image}"
+                    app:isSmallerImage="@{false}"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ic_man" />
+
+                <TextView
+                    android:id="@+id/tv_alias"
+                    android:layout_width="0dp"
+                    android:layout_margin="@dimen/dimen_16dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.alias}"
+                    android:textAlignment="center"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profPic"
+                    tools:text="Professor" />
+
+                <TextView
+                    android:id="@+id/tv_name_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_name"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintEnd_toStartOf="@id/tv_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_alias"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Name" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.name}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_name_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_name_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_name_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Serjio Marquina" />
+
+                <TextView
+                    android:id="@+id/tv_occupation_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_occupation"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintEnd_toStartOf="@id/tv_occupation"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Occupation" />
+
+                <TextView
+                    android:id="@+id/tv_occupation"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.occupation}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_occupation_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_occupation_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_occupation_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Heist Planner" />
+
+                <TextView
+                    android:id="@+id/tv_gender_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_gender"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintBottom_toTopOf="@id/tv_status"
+                    app:layout_constraintEnd_toStartOf="@id/tv_gender"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_occupation"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Gender" />
+
+                <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.gender}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_gender_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_gender_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_gender_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Male" />
+
+                <TextView
+                    android:id="@+id/tv_status_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_status"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintBottom_toTopOf="@id/tv_romance"
+                    app:layout_constraintEnd_toStartOf="@id/tv_status"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_gender"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Status" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.status}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_status_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_status_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_status_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Alive" />
+
+                <TextView
+                    android:id="@+id/tv_romance_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_romance"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintBottom_toTopOf="@id/tv_family"
+                    app:layout_constraintEnd_toStartOf="@id/tv_romance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_status"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Romance" />
+
+                <TextView
+                    android:id="@+id/tv_romance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.romance}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_romance_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_romance_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_romance_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Lisbon" />
+
+                <TextView
+                    android:id="@+id/tv_family_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_family"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintBottom_toTopOf="@id/tv_first_appearance"
+                    app:layout_constraintEnd_toStartOf="@id/tv_family"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_romance"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Family" />
+
+                <TextView
+                    android:id="@+id/tv_family"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.family}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_family_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_family_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_family_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Berlin" />
+
+                <TextView
+                    android:id="@+id/tv_first_appearance_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_first_appearance"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintBottom_toTopOf="@id/tv_last_appearance"
+                    app:layout_constraintEnd_toStartOf="@id/tv_first_appearance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_family"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="First Appearance" />
+
+                <TextView
+                    android:id="@+id/tv_first_appearance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.first_appearance}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_first_appearance_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_first_appearance_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_first_appearance_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="P1 E1" />
+
+                <TextView
+                    android:id="@+id/tv_last_appearance_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_last_appearance"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintBottom_toTopOf="@id/tv_played_by"
+                    app:layout_constraintEnd_toStartOf="@id/tv_last_appearance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_first_appearance"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Last Appearance" />
+
+                <TextView
+                    android:id="@+id/tv_last_appearance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.last_appearance}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_last_appearance_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_last_appearance_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_last_appearance_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="P4 E8" />
+
+                <TextView
+                    android:id="@+id/tv_played_by_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_played_by"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/planeSecondaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_played_by"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_last_appearance"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Played by" />
+
+                <TextView
+                    android:id="@+id/tv_played_by"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@{item.played_by}"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/planePrimaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_played_by_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_played_by_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_played_by_label"
+                    app:layout_constraintWidth_percent="0.5"
+                    tools:text="Alvaro Morte" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

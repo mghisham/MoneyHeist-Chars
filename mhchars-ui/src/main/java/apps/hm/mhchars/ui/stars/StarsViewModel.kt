@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import apps.hm.mhchars.domain.model.CharacterEntity
 import apps.hm.mhchars.domain.model.Output
 import apps.hm.mhchars.domain.usecase.CharactersUseCase
+import apps.hm.mhchars.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StarsViewModel @Inject constructor(private val charactersUseCase: CharactersUseCase) :
-    ViewModel() {
+    BaseViewModel() {
 
     private val _starsList = MutableLiveData<Output<List<CharacterEntity>>>()
     val starsList: LiveData<Output<List<CharacterEntity>>> = _starsList

@@ -67,9 +67,6 @@ class StarsFragment : BaseFragment() {
                 }
             }
         }
-        binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
     }
 
     private val onStarClick: (star: CharacterEntity, view: View) -> Unit =

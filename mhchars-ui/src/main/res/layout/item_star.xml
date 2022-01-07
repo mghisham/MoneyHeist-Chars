@@ -15,7 +15,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        style="@style/buiStyleCardView"
+        style="@style/MyDroidStyleCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_4dp"
