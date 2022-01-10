@@ -13,5 +13,5 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun bindCharsRepository(repository: CharsRepositoryImpl): CharsRepository
+    internal abstract fun bindCharsRepository(repository: CharsRepositoryImpl): CharsRepository
 }

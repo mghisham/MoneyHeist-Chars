@@ -2,7 +2,6 @@ package apps.hm.mhchars.ui.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import apps.hm.mhchars.domain.model.Output
 import apps.hm.mhchars.ui.base.BaseViewModel
@@ -25,11 +24,18 @@ class SplashViewModel @Inject constructor() : BaseViewModel() {
         load()
     }
 
-    fun load() {
+    /**
+     * Method to show splash screen for few milli seconds to user.
+     */
+    fun load(timeMillis: Long = SPLASH_TIME) {
         _isOk.value = Output.loading()
         viewModelScope.launch {
-            delay(800)
+            delay(timeMillis = timeMillis)
             _isOk.postValue(Output.success(true))
         }
+    }
+
+    companion object {
+        const val SPLASH_TIME = 800L
     }
 }

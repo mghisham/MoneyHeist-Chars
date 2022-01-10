@@ -13,6 +13,7 @@ import apps.hm.mhchars.ui.base.BaseFragment
 import apps.hm.mhchars.ui.databinding.FragmentSplashBinding
 
 class SplashFragment : BaseFragment() {
+
     private lateinit var binding: FragmentSplashBinding
 
     private val splashViewModel by viewModels<SplashViewModel>()
@@ -46,6 +47,9 @@ class SplashFragment : BaseFragment() {
         }
     }
 
+    /**
+     * Method to navigate Fragment to Characters Screen.
+     */
     private fun gotoCharacters() {
         val extras = FragmentNavigatorExtras(
             binding.profPic to getString(R.string.app_name)

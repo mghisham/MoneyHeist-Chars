@@ -82,7 +82,7 @@
                 <ImageView
                     android:id="@+id/profPic"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/dimen_400dp"
+                    android:layout_height="@dimen/dimen_500dp"
                     android:contentDescription="@string/app_name"
                     android:transitionName="@{item.image}"
                     app:imageUrl="@{item.image}"
@@ -96,28 +96,39 @@
                 <TextView
                     android:id="@+id/tv_alias"
                     android:layout_width="0dp"
-                    android:layout_margin="@dimen/dimen_16dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_16dp"
+                    android:gravity="center"
                     android:text="@{item.alias}"
-                    android:textAlignment="center"
-                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textAppearance="?attr/textAppearanceButton"
                     android:textColor="@color/planePrimaryTextColor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/profPic"
                     tools:text="Professor" />
 
+                <View
+                    android:id="@+id/view_line"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:background="@color/planeSecondaryTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_alias"
+                    tools:text="Professor" />
+
                 <TextView
                     android:id="@+id/tv_name_label"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_name"
                     android:layout_marginTop="@dimen/dimen_16dp"
+                    android:text="@string/label_name"
                     android:textAppearance="?attr/textAppearanceSubtitle2"
                     android:textColor="@color/planeSecondaryTextColor"
                     app:layout_constraintEnd_toStartOf="@id/tv_name"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_alias"
+                    app:layout_constraintTop_toBottomOf="@id/view_line"
                     app:layout_constraintWidth_percent="0.5"
                     tools:text="Name" />
 

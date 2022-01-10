@@ -13,5 +13,5 @@ import javax.inject.Singleton
 abstract class UseCaseModule {
     @Binds
     @Singleton
-    abstract fun bindCharacterUseCase(useCaseImpl: CharactersUseCaseImpl): CharactersUseCase
+    internal abstract fun bindCharacterUseCase(useCaseImpl: CharactersUseCaseImpl): CharactersUseCase
 }

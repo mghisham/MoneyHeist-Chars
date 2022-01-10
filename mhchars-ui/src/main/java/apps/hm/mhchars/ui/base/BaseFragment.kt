@@ -7,6 +7,9 @@ import apps.hm.mhchars.ui.R
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Base class for all Fragments
+ */
 @AndroidEntryPoint
 abstract class BaseFragment : Fragment() {
     private var snackBar: Snackbar? = null
@@ -16,6 +19,9 @@ abstract class BaseFragment : Fragment() {
         subscribeUi()
     }
 
+    /**
+     * Set a status bar color to this fragment.
+     */
     protected open fun setStatusBarColor() {
         activity?.let {
             it.window.statusBarColor = it.getColor(
@@ -24,7 +30,10 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun subscribeUi() = Unit
+    /**
+     * Initialize/Subscribe UI properties after Fragment's View created.
+     */
+    abstract fun subscribeUi()
 
     protected fun showError(msg: String, onRetry: () -> Unit) {
         view?.let {
@@ -37,6 +46,9 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    /**
+     * Method to display a message to the user via SnackBar.
+     */
     protected fun showMessage(msg: String) {
         view?.let {
             hideError()
@@ -45,6 +57,9 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    /**
+     * Method to dismiss the displayed message.
+     */
     protected fun hideError() {
         snackBar?.dismiss()
     }

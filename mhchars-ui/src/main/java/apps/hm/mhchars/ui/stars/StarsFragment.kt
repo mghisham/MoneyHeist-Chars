@@ -69,6 +69,9 @@ class StarsFragment : BaseFragment() {
         }
     }
 
+    /**
+     * @property onStarClick to handle the item click.
+     */
     private val onStarClick: (star: CharacterEntity, view: View) -> Unit =
         { star, view ->
             val extras = FragmentNavigatorExtras(

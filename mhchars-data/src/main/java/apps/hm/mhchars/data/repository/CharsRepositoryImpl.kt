@@ -11,7 +11,11 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class CharsRepositoryImpl @Inject constructor(
+/**
+ * Implementation of CharsRepository
+ * @param charsRemoteDataSource the object of remote data source
+ */
+internal class CharsRepositoryImpl @Inject constructor(
     private val charsRemoteDataSource: CharsRemoteDataSource
 ) : CharsRepository {
     override suspend fun fetchCharacters(): Flow<Output<List<CharacterEntity>>> {

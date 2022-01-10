@@ -24,6 +24,9 @@ class StarsViewModel @Inject constructor(private val charactersUseCase: Characte
         fetchStars()
     }
 
+    /**
+     * Method to fetch the characters data.
+     */
     fun fetchStars() {
         viewModelScope.launch {
             charactersUseCase.execute().collect {

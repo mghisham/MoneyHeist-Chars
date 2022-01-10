@@ -4,6 +4,9 @@ import android.view.View
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import apps.hm.mhchars.ui.R
 
+/**
+ * Extension function to apply the color theme to SwipeRefreshLayout.
+ */
 fun SwipeRefreshLayout.applyTheme() {
     setColorSchemeResources(
         R.color.planePrimaryTextColor,
@@ -13,6 +16,10 @@ fun SwipeRefreshLayout.applyTheme() {
     setProgressBackgroundColorSchemeResource(R.color.myBackground)
 }
 
+/**
+ * Extension function to handle view clicks safely.
+ * @param onSafeClick
+ */
 fun View.setOnSafeClickListener(
     onSafeClick: (View) -> Unit
 ) {
@@ -21,6 +28,11 @@ fun View.setOnSafeClickListener(
     })
 }
 
+/**
+ * Extension function to handle view clicks safely with a time interval.
+ * @param interval time of interval
+ * @param onSafeClick
+ */
 fun View.setOnSafeClickListener(
     interval: Int,
     onSafeClick: (View) -> Unit
