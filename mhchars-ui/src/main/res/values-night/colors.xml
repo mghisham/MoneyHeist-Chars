@@ -4,4 +4,5 @@
     <color name="planePrimaryTextColor">#FFFFFF</color>
     <color name="planeSecondaryTextColor">#919191</color>
     <color name="cardSecondaryTextColor">#696969</color>
+    <color name="ic_launcher_background">#2b2b38</color>
 </resources>

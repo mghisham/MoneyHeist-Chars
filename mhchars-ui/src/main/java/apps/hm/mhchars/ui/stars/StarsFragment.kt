@@ -70,7 +70,7 @@ class StarsFragment : BaseFragment() {
     }
 
     /**
-     * @property onStarClick to handle the item click.
+     * @property onStarClick to handle the characters item click.
      */
     private val onStarClick: (star: CharacterEntity, view: View) -> Unit =
         { star, view ->

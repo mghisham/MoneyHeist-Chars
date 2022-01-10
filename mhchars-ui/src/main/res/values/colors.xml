@@ -23,4 +23,5 @@
     <color name="planePrimaryTextColor">#2b2b38</color>
     <color name="planeSecondaryTextColor">#696969</color>
     <color name="cardSecondaryTextColor">#919191</color>
+    <color name="ic_launcher_background">#FFF</color>
 </resources>

@@ -31,7 +31,7 @@ fun View.setOnSafeClickListener(
 /**
  * Extension function to handle view clicks safely with a time interval.
  * @param interval time of interval
- * @param onSafeClick
+ * @param onSafeClick callback/Lambda
  */
 fun View.setOnSafeClickListener(
     interval: Int,

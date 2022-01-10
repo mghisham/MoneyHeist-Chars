@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import apps.hm.mhchars.ui.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Launcher Activity (Entry point) of this application
+ */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
