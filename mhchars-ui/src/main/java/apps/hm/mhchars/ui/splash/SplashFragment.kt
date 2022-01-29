@@ -14,7 +14,7 @@ import apps.hm.mhchars.ui.databinding.FragmentSplashBinding
 
 class SplashFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentSplashBinding
+    private var binding: FragmentSplashBinding? = null
 
     private val splashViewModel by viewModels<SplashViewModel>()
 
@@ -22,27 +22,22 @@ class SplashFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return if (::binding.isInitialized) {
-            binding.root
-        } else {
-            binding = FragmentSplashBinding.inflate(inflater, container, false)
-            with(binding) {
-                viewModel = splashViewModel
-                lifecycleOwner = this@SplashFragment
-                root
-            }
+    ): View = FragmentSplashBinding.inflate(inflater, container, false).let {
+        binding = it
+        with(it) {
+            viewModel = splashViewModel
+            lifecycleOwner = this@SplashFragment
+            root
         }
     }
 
     override fun subscribeUi() {
         splashViewModel.isOk.observe(viewLifecycleOwner) { result ->
             if (result.status == Output.Status.SUCCESS) {
-                binding.loading.hide()
+                binding?.loading?.hide()
                 gotoCharacters()
-            }
-            else if (result.status == Output.Status.LOADING) {
-                binding.loading.show()
+            } else if (result.status == Output.Status.LOADING) {
+                binding?.loading?.show()
             }
         }
     }
@@ -51,9 +46,16 @@ class SplashFragment : BaseFragment() {
      * Method to navigate Fragment to Characters Screen.
      */
     private fun gotoCharacters() {
-        val extras = FragmentNavigatorExtras(
-            binding.profPic to getString(R.string.app_name)
-        )
-        findNavController().navigate(R.id.splash_to_characters, null, null, extras)
+        binding?.let {
+            val extras = FragmentNavigatorExtras(
+                it.profPic to getString(R.string.app_name)
+            )
+            findNavController().navigate(R.id.splash_to_characters, null, null, extras)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

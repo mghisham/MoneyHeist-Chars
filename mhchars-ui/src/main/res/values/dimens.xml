@@ -10,6 +10,7 @@
     <dimen name="dimen_64dp">64dp</dimen>
     <dimen name="dimen_100dp">100dp</dimen>
     <dimen name="dimen_200dp">200dp</dimen>
+    <dimen name="dimen_250dp">250dp</dimen>
     <dimen name="dimen_400dp">400dp</dimen>
     <dimen name="dimen_500dp">500dp</dimen>
 </resources>

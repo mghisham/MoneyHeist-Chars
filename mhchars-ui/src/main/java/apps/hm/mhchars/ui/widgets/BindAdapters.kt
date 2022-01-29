@@ -20,6 +20,8 @@ fun setImageUrl(imageView: ImageView, url: String?, isSmallerImage: Boolean) {
         builder.resize(256, 256)
         builder.placeholder(R.drawable.ic_man)
         builder.centerCrop()
+    } else {
+        builder.fit()
     }
     builder.into(imageView)
 }

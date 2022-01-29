@@ -2,9 +2,9 @@ ext {
     def gradleVersion = "7.0.4"
     def kotlinGradleVersion = "1.6.10"
     def hiltGradleVersion = "2.40.5"
-    def appCompatVersion = "1.4.0"
+    def appCompatVersion = "1.4.1"
     def materialVersion = "1.4.0"
-    def constraintLayoutVersion = "2.1.2"
+    def constraintLayoutVersion = "2.1.3"
     def coreKtxVersion = "1.7.0"
     def activityKtx = "1.4.0"
     def lifecycleLivedataKtx = "2.4.0"
@@ -31,7 +31,6 @@ ext {
     def testJunit = "4.13.2"
     def androidTestJunit = "1.1.3"
     def androidTestEspressoCore = "3.4.0"
-    def glideVersion = "4.11.0"
     def picassoVersion = "2.5.2"
 
     classPaths = [
