@@ -4,8 +4,10 @@ plugins {
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id 'jacoco'
 }
 
+apply from: "$project.rootDir/script-jacoco.gradle"
 apply from: '../dependencies.gradle'
 
 android {

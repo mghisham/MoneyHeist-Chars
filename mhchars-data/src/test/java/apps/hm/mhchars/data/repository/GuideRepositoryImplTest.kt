@@ -1,8 +1,9 @@
 package apps.hm.mhchars.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import apps.hm.mhchars.domain.getDummyCharacters
 import apps.hm.mhchars.data.remote.CharsRemoteDataSource
+import apps.hm.mhchars.domain.getDummyCharacters
+import apps.hm.mhchars.domain.model.CharacterEntity
 import apps.hm.mhchars.domain.model.Output
 import apps.hm.mhchars.domain.repository.CharsRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -38,8 +39,9 @@ class CharsRepositoryTest {
     fun `Given Characters When fetchCharacters returns Success`() = runBlocking {
         //GIVEN
         val givenCharacters = getDummyCharacters()
-        val givenCharactersOutput = Output.success(givenCharacters)
-        val inputFlow = listOf(Output.loading(), Output.success(givenCharactersOutput))
+        val givenCharactersOutput = Output.success<List<CharacterEntity>>(givenCharacters)
+        val inputFlow =
+            listOf(Output.loading<List<CharacterEntity>>(), Output.success(givenCharactersOutput))
         `when`(charsRemoteDataSource.fetchCharacters()).thenReturn(givenCharactersOutput)
 
         //WHEN
