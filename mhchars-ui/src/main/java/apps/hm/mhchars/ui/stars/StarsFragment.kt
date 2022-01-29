@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -17,54 +16,50 @@ import apps.hm.mhchars.ui.widgets.applyTheme
 
 class StarsFragment : BaseFragment() {
     private val starsViewModel: StarsViewModel by viewModels()
-    private lateinit var binding: FragmentListStarsBinding
+    private var binding: FragmentListStarsBinding? = null
     private lateinit var starsAdapter: StarsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return if (::binding.isInitialized) {
-            binding.root
-        } else {
-            binding = FragmentListStarsBinding.inflate(inflater, container, false)
-            with(binding) {
-                headerTitle = this@StarsFragment.getString(R.string.label_p_language_stars)
-                root
-            }
+    ): View = FragmentListStarsBinding.inflate(inflater, container, false).let {
+        binding = it
+        with(it) {
+            headerTitle = getString(R.string.label_p_language_stars)
+            root
         }
     }
 
+
     override fun subscribeUi() {
-        binding.swipeRefresh.applyTheme()
-        starsAdapter = StarsAdapter(arrayListOf(), onStarClick)
-        binding.rvQuestions.adapter = starsAdapter
-        binding.swipeRefresh.setOnRefreshListener {
-            starsViewModel.fetchStars()
+        binding?.let {
+            it.swipeRefresh.applyTheme()
+            starsAdapter = StarsAdapter(arrayListOf(), onStarClick)
+            it.rvQuestions.adapter = starsAdapter
+            it.swipeRefresh.setOnRefreshListener {
+                starsViewModel.fetchStars()
+            }
         }
         starsViewModel.starsList.observe(viewLifecycleOwner) { result ->
 
-            when (result.status) {
+            binding?.swipeRefresh?.isRefreshing = when (result.status) {
                 Output.Status.SUCCESS -> {
                     result.data?.let { list ->
                         starsAdapter.update(list)
                     }
-                    binding.swipeRefresh.isRefreshing = false
+                    false
                 }
-
                 Output.Status.ERROR -> {
                     result.message?.let {
                         showError(it) {
                             starsViewModel.fetchStars()
                         }
                     }
-                    binding.swipeRefresh.isRefreshing = false
+                    false
                 }
+                Output.Status.LOADING -> true
 
-                Output.Status.LOADING -> {
-                    binding.swipeRefresh.isRefreshing = true
-                }
             }
         }
     }
@@ -79,7 +74,7 @@ class StarsFragment : BaseFragment() {
             )
             findNavController().navigate(
                 R.id.stars_to_details,
-                bundleOf(StarDetailsFragment.ITEM to star),
+                StarDetailsFragment.Args(star).toBundle(),
                 null,
                 extras
             )
